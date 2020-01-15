@@ -1,0 +1,32 @@
+<h1>Menu</h1>
+<hr />
+
+<h3>Pizza Sizes</h3>
+<section class="row">
+    <div class="card" class="col selectable" *ngFor="let item of pizzas" (click)="selectPizza(item)" 
+        [ngClass]="{'active': selectedPizza?.id==item.id}">
+        <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${{ item.price }}</h6>
+        </div>
+    </div>
+</section>
+<hr />
+
+<h3>Toopings</h3>
+<section class="row">
+    <div class="card" class="col selectable" *ngFor="let item of topings" (click)="selectTopings(item)" 
+        [ngClass]="{'active': toppingSelected(item)}">
+        <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${{ item.price }}</h6>
+        </div>
+    </div>
+</section>
+<hr />
+<br/>
+<p class="error">{{ errorMsg }}</p>
+<button type="button" class="btn btn-primary" (click)="addPizza()" >Add Pizza</button> &nbsp; &nbsp;
+<span *ngIf="getPizzaTotal() > 0">$ {{ getPizzaTotal() | number: '.2-2' }}</span>
+<hr />
+

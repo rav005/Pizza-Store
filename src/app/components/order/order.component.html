@@ -1,0 +1,32 @@
+<h1>Your Order</h1>
+<hr />
+
+<ul class="list-group" *ngFor="let p of order.pizza">
+    <li class="list-group-item d-flex justify-content-between align-items-center bold">
+        {{ p.base.name }} <span class="badge badge-primary badge-pil">{{ p.base.price | number: '0.2-2'}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let t of p.toppings">
+      {{ t.name }} <span class="badge badge-primary badge-pil">{{ t.price | number: '0.2-2'}}</span>
+    </li>
+</ul>
+
+<ul class="list-group" *ngIf="order.total > 0">
+    <li class="list-group-item d-flex justify-content-between align-items-center bold">
+        Sub Total: <span class="badge badge-primary badge-pil">{{ order.subTotal | number: '0.2-2'}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center bold">
+        Tax: <span class="badge badge-primary badge-pil">{{ order.tax | number: '0.2-2'}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center bold">
+        Total: <span class="badge badge-primary badge-pil">{{ order.total | number: '0.2-2'}}</span>
+    </li>
+</ul>
+
+<button type="button" class="btn btn-primary btn-lg btn-block" (click)="placeOrder()" *ngIf="order.total > 0">Place Order!</button>
+
+<div class="alert alert-success" role="alert" *ngIf="showSuccess" [ngClass]="{'notify-show': showSuccess}">
+    <h4 class="alert-heading">Interview?</h4>
+    <p>I did all this, call me in for interview!</p>
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="close()">Done</button>
+</div>

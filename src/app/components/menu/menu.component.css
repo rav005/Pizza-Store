@@ -1,0 +1,15 @@
+.active {
+    background-color: skyblue;
+}
+
+.selectable:hover {
+    cursor: pointer;
+}
+
+.btn {
+    margin: 2px;
+}
+
+.error {
+    color: red;
+}

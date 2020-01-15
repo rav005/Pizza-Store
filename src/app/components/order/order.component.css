@@ -1,0 +1,15 @@
+
+h2 {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.notify-show {
+    position: fixed;
+    left: 45%;
+    top: 45%;
+    z-index: 99;
+}
